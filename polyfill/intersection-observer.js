@@ -11,9 +11,15 @@
 'use strict';
 
 
+// Dirty check for Edge, see below for details
+var isEdge = /Edge\/\d+/i.test(navigator.userAgent);
+
+
 // Exits early if all IntersectionObserver and IntersectionObserverEntry
 // features are natively supported.
-if ('IntersectionObserver' in window &&
+// Force-enable polyfill for MS Edge because Edge is totally borked when the page is zoomed (which can be quite common, especially on 4k screens).
+if (!isEdge &&
+    'IntersectionObserver' in window &&
     'IntersectionObserverEntry' in window &&
     'intersectionRatio' in window.IntersectionObserverEntry.prototype) {
 
