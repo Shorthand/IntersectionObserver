@@ -1,0 +1,5 @@
+{
+  "name": "intersection-observer",
+  "main": "./polyfill/",
+  "version": "6.0.0"
+}
